@@ -66,12 +66,9 @@ names(st_bydy_sum)[names(st_bydy_sum) == "steps"]<-"Total_steps"
 head(st_bydy_sum, n = 100)
 ````
 Here is the histogram plot for the total number of steps taken each day
-```` {r, echo = FALSE,fig.path="/"}
-pl1<-ggplot(data = st_bydy_sum,aes(x=date, y=Total_steps)) + geom_col(color = "blue",fill = "blue") + labs(x="Dates", y = "Tota Steps") + theme_bw()
-ggplotly(pl1)
+```` {r, echo = FALSE}
+knitr::include_graphics("plot1.png")
 ````
-___The highest number of steps where collected on November 22 and 23 of 2012.___
-
 The assignment asked to calculate the mean number of steps and here is the table with the data
 ```` {r,echo = FALSE}
 st_bydy_mean<-aggregate(steps ~ date,data = act_df, FUN = "mean", na.rm = T)
@@ -104,8 +101,7 @@ _All this data was calculated by ignoring the NA values from the source data_
 ```` {r,echo = FALSE,fig.path="/"}
 st_bydy_5min<-aggregate(steps ~ interval,data=act_df, FUN = (function(x){ifelse(sum(x==0) > 0 & sum(x != 0) > 0,mean(x[x>0]), mean(x))})) 
 
-plotl<-ggplot(st_bydy_5min, aes(x = interval,y= steps))+ geom_line(color = "blue")  + labs(y = "Average number of steps", x = "Intervals") + theme_bw()
-ggplotly(plotl)
+knitr::include_graphics("plot2.png")
 
 ````
 ___The plot shows that interval "835" contains the maximum number of average steps with a value of 352.___
@@ -135,8 +131,7 @@ act_df_imp = act_df_imp %>% left_join(st_bydy_int_avg, by="interval") %>% mutate
 ````
 Here is the histogram plot for the updated data
 ```` {r, echo = FALSE,fig.path="/"}
-pl2<-ggplot(data = act_df_imp,aes(x=date, y=steps)) + geom_col(color = "blue",fill = "blue") + labs(x="Dates", y = "Steps") + theme_bw()
-ggplotly(pl2)
+knitr::include_graphics("plot3.png")
 ````
 The assignment asked to recalculate the mean number of steps and here is the table with the data
 ```` {r,echo = FALSE}
@@ -177,8 +172,7 @@ act_df_imp$weekfact <- factor(ifelse(weekdays(act_df_imp$date, abbr = TRUE) %in%
 st_bydy_int_avg2<-aggregate(steps ~ interval + weekfact,data=act_df_imp, FUN = (function(x){ifelse(sum(x==0) > 0 & sum(x != 0) > 0,mean(x[x>0]), mean(x))})) 
 
 
-weekpl<- ggplot(st_bydy_int_avg2, aes(x = interval,y= steps))+ geom_line(color = "blue")  + labs(y = "Number of steps", x = "5 minute intervals") + facet_wrap(~weekfact,ncol=1) + theme_bw()
-ggplotly(weekpl)
+knitr::include_graphics("plot4.png")
 ````
 ___This data shows that the maximum number steps taken is higher during weekdays 387 than the weekends maximum of 334___
 ___Also, the peak intervals for weekdays runs in the range of 535:905 in comparison to the weekends range of 1530:1700___
