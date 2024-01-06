@@ -31,9 +31,9 @@ knit_print.data.frame <- lemon_print
 ## Reading the data
 Here is the location of the data source needed (previously provided by the assignment instruction page)
 
-setwd("/Users/lubravo19/Documents/Labinfo/Cousera\ trainings/Reproducible\ Research/assignment week2")
+setwd <<Path to location>>
 ````{r, echo = FALSE}
-setwd("/Users/lubravo19/Documents/Labinfo/Cousera\ trainings/Reproducible\ Research/assignment week2")
+setwd("/Users/lubravo19/Documents/Labinfo/Cousera trainings/Reproducible Research/assignment week2/assignment2")
 ````
 The comma separated file is extracted for the provided "zip" file
 
