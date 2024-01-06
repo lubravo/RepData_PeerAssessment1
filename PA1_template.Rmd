@@ -26,6 +26,7 @@ library("ggplot2")
 library(plotly)
 library(lemon)
 knit_print.data.frame <- lemon_print
+unzip("repdata_data_activity.zip")
 ````
 
 ## Reading the data
