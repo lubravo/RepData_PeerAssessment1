@@ -104,12 +104,7 @@ Table: Total number of steps by dates
 |2012-11-28 |       10183|
 |2012-11-29 |        7047|
 Here is the histogram plot for the total number of steps taken each day
-
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
-___The highest number of steps where collected on November 22 and 23 of 2012.___
-
+![plot of chunk unnamed-chunk-7](plot1.png)
 The assignment asked to calculate the mean number of steps and here is the table with the data
 
 
@@ -240,10 +235,7 @@ Total number of observations 53
 _All this data was calculated by ignoring the NA values from the source data_
 
 ## What is the average daily activity pattern?
-
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
+![plot of chunk unnamed-chunk-12](plot2.png)
 ___The plot shows that interval "835" contains the maximum number of average steps with a value of 352.___
 
 ### Imputing missing values
@@ -251,10 +243,7 @@ I used the average step calculation per interval to replace the NA values in the
 I added a new dataframe to hold the updated data
 
 Here is the histogram plot for the updated data
-
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
+![plot of chunk unnamed-chunk-14](plot3.png)
 The assignment asked to recalculate the mean number of steps and here is the table with the data
 
 
@@ -399,9 +388,6 @@ ___These updated calculations differ from the earlier ones since we have replace
 ## Are there differences in activity patterns between weekdays and weekends?
 Here are the time series plots that show the total number of steps on weekdays and weekends
 
-
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
+![plot of chunk unnamed-chunk-19](plot4.png)
 ___This data shows that the maximum number steps taken is higher during weekdays 387 than the weekends maximum of 334___
 ___Also, the peak intervals for weekdays runs in the range of 535:905 in comparison to the weekends range of 1530:1700___
