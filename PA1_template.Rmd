@@ -66,7 +66,7 @@ names(st_bydy_sum)[names(st_bydy_sum) == "steps"]<-"Total_steps"
 head(st_bydy_sum, n = 100)
 ````
 Here is the histogram plot for the total number of steps taken each day
-```` {r, echo = FALSE}
+```` {r, echo = FALSE,fig.path="/"}
 pl1<-ggplot(data = st_bydy_sum,aes(x=date, y=Total_steps)) + geom_col(color = "blue",fill = "blue") + labs(x="Dates", y = "Tota Steps") + theme_bw()
 ggplotly(pl1)
 ````
@@ -101,7 +101,7 @@ Total number of observations `r me_rows`
 _All this data was calculated by ignoring the NA values from the source data_
 
 ## What is the average daily activity pattern?
-```` {r,echo = FALSE}
+```` {r,echo = FALSE,fig.path="/"}
 st_bydy_5min<-aggregate(steps ~ interval,data=act_df, FUN = (function(x){ifelse(sum(x==0) > 0 & sum(x != 0) > 0,mean(x[x>0]), mean(x))})) 
 
 plotl<-ggplot(st_bydy_5min, aes(x = interval,y= steps))+ geom_line(color = "blue")  + labs(y = "Average number of steps", x = "Intervals") + theme_bw()
@@ -134,7 +134,7 @@ act_df_imp = act_df_imp %>% left_join(st_bydy_int_avg, by="interval") %>% mutate
 
 ````
 Here is the histogram plot for the updated data
-```` {r, echo = FALSE}
+```` {r, echo = FALSE,fig.path="/"}
 pl2<-ggplot(data = act_df_imp,aes(x=date, y=steps)) + geom_col(color = "blue",fill = "blue") + labs(x="Dates", y = "Steps") + theme_bw()
 ggplotly(pl2)
 ````
@@ -165,7 +165,7 @@ ___These updated calculations differ from the earlier ones since we have replace
 ## Are there differences in activity patterns between weekdays and weekends?
 Here are the time series plots that show the total number of steps on weekdays and weekends
 
-```` {r, echo = FALSE}
+```` {r, echo = FALSE,fig.path="/"}
 ## Weekends and weekdays analysis
 
 ## adding factor based on weekdays and weekends
